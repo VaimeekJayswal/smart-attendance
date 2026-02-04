@@ -1,0 +1,58 @@
+<% var title = "Mark Attendance"; %>
+
+<h1>Mark Attendance</h1>
+<p class="muted">
+  <b><%= lecture.code %></b> — <%= lecture.subject_name %> |
+  <%= lecture.lecture_date %> <%= lecture.start_time %> |
+  Window: <%= lecture.window_mins %> mins |
+  Late after: <%= lecture.late_after_mins %> mins
+</p>
+
+<div class="card">
+  <p>
+    Minutes from start: <b><%= minsFromStart %></b> |
+    Window status: <b class="<%= withinWindow ? 'ok' : 'bad' %>"><%= withinWindow ? 'OPEN' : 'CLOSED' %></b>
+  </p>
+</div>
+
+<div class="card">
+  <table>
+    <tr>
+      <th>Student</th><th>Status</th><th>Reason</th><th>Action</th>
+    </tr>
+
+    <% students.forEach(stu => { 
+      const a = attMap.get(stu.id);
+    %>
+      <tr>
+        <td><%= stu.name %></td>
+        <td><%= a ? a.status : '-' %></td>
+        <td><%= a ? a.reason_category : '-' %></td>
+        <td>
+          <% if (withinWindow) { %>
+            <form method="POST" action="/faculty/lectures/<%= lecture.id %>/mark" class="rowForm">
+              <input type="hidden" name="student_id" value="<%= stu.id %>"/>
+
+              <select name="status">
+                <option value="P">Present</option>
+                <option value="L">Late</option>
+                <option value="A">Absent</option>
+              </select>
+
+              <select name="reason_category">
+                <option>None</option>
+                <option>Medical</option>
+                <option>Official Duty</option>
+                <option>Personal</option>
+              </select>
+
+              <button class="btn" type="submit">Save</button>
+            </form>
+          <% } else { %>
+            <span class="muted">Window closed</span>
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

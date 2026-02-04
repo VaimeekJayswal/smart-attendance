@@ -1,0 +1,21 @@
+<% var title = "Student - Justify"; %>
+
+<h1>Submit Justification</h1>
+
+<p class="muted">
+  Subject: <b><%= row.code %></b> |
+  Lecture: <%= row.lecture_date %> <%= row.start_time %> |
+  Current: <b><%= row.status %></b>
+</p>
+
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+
+<form method="POST" enctype="multipart/form-data" class="card">
+  <label>Justification Message</label>
+  <input name="message" placeholder="Explain why you were absent..." required />
+
+  <label>Proof (optional)</label>
+  <input type="file" name="proof" />
+
+  <button class="btn" type="submit">Submit</button>
+</form>

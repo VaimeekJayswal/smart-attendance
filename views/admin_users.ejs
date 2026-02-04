@@ -1,0 +1,45 @@
+<% var title = "Admin - Users"; %>
+
+<h1>Admin: Users</h1>
+
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Add User</h3>
+    <form method="POST" action="/admin/users">
+      <label>Name</label>
+      <input name="name" required />
+
+      <label>Email</label>
+      <input name="email" required />
+
+      <label>Password</label>
+      <input name="password" type="password" required />
+
+      <label>Role</label>
+      <select name="role">
+        <option value="admin">admin</option>
+        <option value="faculty">faculty</option>
+        <option value="student">student</option>
+      </select>
+
+      <button class="btn" type="submit">Create</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>All Users</h3>
+    <table>
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th></tr>
+      <% users.forEach(u => { %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.name %></td>
+          <td><%= u.email %></td>
+          <td><%= u.role %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</div>

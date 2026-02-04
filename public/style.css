@@ -1,0 +1,125 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: #f5f1e6;
+  color: #3e3b32;
+}
+
+.nav {
+  background: #d8cfc4;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand {
+  font-size: 1.35em;
+  font-weight: 800;
+  margin-right: 18px;
+  letter-spacing: 0.3px;
+}
+
+.nav a {
+  color: #3e3b32;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav a:hover { text-decoration: underline; }
+
+.container { padding: 20px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: #fffaf0;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.10);
+}
+
+.formCard { max-width: 420px; }
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  background: #8c7b6b;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.btn:hover { background: #6f5f52; }
+
+.inline { display: inline; }
+
+.pill {
+  background: #7a6a58;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  margin-left: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fffaf0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+td, th {
+  border: 1px solid #ddd3c6;
+  padding: 10px;
+  text-align: left;
+}
+
+th { background: #e6dccf; }
+
+input, select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #c8bfb3;
+  margin: 8px 0 12px;
+  width: 100%;
+}
+
+label { font-weight: 700; }
+
+.error { color: #b00020; }
+.muted { color: #777060; }
+.small { font-size: 0.9em; }
+
+.linkBtn {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #e6dccf;
+  color: #3e3b32;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.rowForm {
+  display: grid;
+  grid-template-columns: 120px 140px 1fr 90px;
+  gap: 10px;
+  align-items: center;
+}
+
+.ok { color: #1b7f3a; }
+.bad { color: #b00020; }

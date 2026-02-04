@@ -1,0 +1,32 @@
+<% var title = "Admin - Subjects"; %>
+
+<h1>Admin: Subjects</h1>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Add Subject</h3>
+    <form method="POST" action="/admin/subjects">
+      <label>Code</label>
+      <input name="code" required />
+
+      <label>Name</label>
+      <input name="name" required />
+
+      <button class="btn" type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Subjects</h3>
+    <table>
+      <tr><th>ID</th><th>Code</th><th>Name</th></tr>
+      <% subjects.forEach(s => { %>
+        <tr>
+          <td><%= s.id %></td>
+          <td><%= s.code %></td>
+          <td><%= s.name %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</div>

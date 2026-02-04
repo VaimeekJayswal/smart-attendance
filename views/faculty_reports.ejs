@@ -1,0 +1,23 @@
+<% var title = "Faculty - Reports"; %>
+
+<h1>Faculty: Reports</h1>
+<p class="muted">Low attendance threshold: <b><%= threshold %>%</b></p>
+
+<div class="card">
+  <table>
+    <tr>
+      <th>Subject</th><th>Student</th><th>P</th><th>L</th><th>A</th><th>%</th><th>Flag</th>
+    </tr>
+    <% report.forEach(r => { %>
+      <tr>
+        <td><%= r.subject %></td>
+        <td><%= r.student %></td>
+        <td><%= r.P %></td>
+        <td><%= r.L %></td>
+        <td><%= r.A %></td>
+        <td><%= r.pct %>%</td>
+        <td><%= r.low ? "⚠️ LOW" : "-" %></td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

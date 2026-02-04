@@ -1,0 +1,48 @@
+<% var title = "Faculty - Lectures"; %>
+
+<h1>Faculty: Lectures</h1>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Create Lecture</h3>
+    <form method="POST" action="/faculty/lectures">
+      <label>Subject</label>
+      <select name="subject_id">
+        <% subjects.forEach(s => { %>
+          <option value="<%= s.id %>"><%= s.code %> - <%= s.name %></option>
+        <% }) %>
+      </select>
+
+      <label>Date</label>
+      <input type="date" name="lecture_date" required />
+
+      <label>Start Time</label>
+      <input type="time" name="start_time" required />
+
+      <label>Attendance Window (mins)</label>
+      <input type="number" name="window_mins" value="10" />
+
+      <label>Late After (mins)</label>
+      <input type="number" name="late_after_mins" value="5" />
+
+      <button class="btn" type="submit">Create</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Your Lectures</h3>
+    <table>
+      <tr><th>ID</th><th>Subject</th><th>Date</th><th>Start</th><th>Window</th><th></th></tr>
+      <% lectures.forEach(l => { %>
+        <tr>
+          <td><%= l.id %></td>
+          <td><%= l.code %></td>
+          <td><%= l.lecture_date %></td>
+          <td><%= l.start_time %></td>
+          <td><%= l.window_mins %>m</td>
+          <td><a class="linkBtn" href="/faculty/lectures/<%= l.id %>/mark">Mark</a></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</div>

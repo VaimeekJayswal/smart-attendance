@@ -1,0 +1,15 @@
+<% var title = "Student - Dashboard"; %>
+
+<h1>Student Dashboard</h1>
+
+<div class="grid">
+  <% cards.forEach(c => { %>
+    <div class="card">
+      <h3><%= c.code %></h3>
+      <p class="muted"><%= c.name %></p>
+      <p><b><%= c.pct %>%</b> attendance</p>
+      <p>P: <%= c.P %> | L: <%= c.L %> | A: <%= c.A %></p>
+      <a class="linkBtn" href="/student/subject/<%= c.id %>">View details</a>
+    </div>
+  <% }) %>
+</div>

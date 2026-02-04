@@ -1,0 +1,40 @@
+<% var title = "Admin - Enroll"; %>
+
+<h1>Admin: Enrollments</h1>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Enroll Student</h3>
+    <form method="POST" action="/admin/enroll">
+      <label>Student</label>
+      <select name="student_id">
+        <% students.forEach(s => { %>
+          <option value="<%= s.id %>"><%= s.name %> (<%= s.email %>)</option>
+        <% }) %>
+      </select>
+
+      <label>Subject</label>
+      <select name="subject_id">
+        <% subjects.forEach(s => { %>
+          <option value="<%= s.id %>"><%= s.code %> - <%= s.name %></option>
+        <% }) %>
+      </select>
+
+      <button class="btn" type="submit">Enroll</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Current Enrollments</h3>
+    <table>
+      <tr><th>ID</th><th>Student</th><th>Subject</th></tr>
+      <% enrollments.forEach(e => { %>
+        <tr>
+          <td><%= e.id %></td>
+          <td><%= e.student_name %></td>
+          <td><%= e.subject_code %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</div>

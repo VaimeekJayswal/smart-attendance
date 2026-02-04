@@ -1,0 +1,24 @@
+<% var title = "Student - Subject"; %>
+
+<h1><%= subject ? subject.code : "Subject" %> Attendance</h1>
+
+<div class="card">
+  <table>
+    <tr><th>Date</th><th>Start</th><th>Status</th><th>Reason</th><th>Justify</th></tr>
+    <% rows.forEach(r => { %>
+      <tr>
+        <td><%= r.lecture_date %></td>
+        <td><%= r.start_time %></td>
+        <td><%= r.status %></td>
+        <td><%= r.reason_category %></td>
+        <td>
+          <% if (r.status === "A") { %>
+            <a class="linkBtn" href="/student/justify/<%= r.attendance_id %>">Submit</a>
+          <% } else { %>
+            -
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

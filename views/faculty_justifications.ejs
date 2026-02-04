@@ -1,0 +1,49 @@
+<% var title = "Faculty - Justifications"; %>
+
+<h1>Faculty: Justifications</h1>
+
+<div class="card">
+  <table>
+    <tr>
+      <th>ID</th><th>Student</th><th>Subject</th><th>Lecture</th><th>Attendance</th><th>Message</th><th>Proof</th><th>Status</th><th>Action</th>
+    </tr>
+
+    <% rows.forEach(r => { %>
+      <tr>
+        <td><%= r.id %></td>
+        <td><%= r.student_name %></td>
+        <td><%= r.subject_code %></td>
+        <td><%= r.lecture_date %> <%= r.start_time %></td>
+        <td><%= r.att_status %></td>
+        <td><%= r.message %></td>
+        <td>
+          <% if (r.file_path) { %>
+            <a href="<%= r.file_path %>" target="_blank">Open</a>
+          <% } else { %>
+            -
+          <% } %>
+        </td>
+        <td><%= r.status %></td>
+        <td>
+          <form method="POST" action="/faculty/justifications/<%= r.id %>" class="rowForm">
+            <select name="action">
+              <option value="Approved">Approve</option>
+              <option value="Rejected">Reject</option>
+            </select>
+
+            <select name="convert_to">
+              <option value="">No convert</option>
+              <option value="P">Convert to P</option>
+              <option value="L">Convert to L</option>
+              <option value="A">Keep A</option>
+            </select>
+
+            <input name="faculty_comment" placeholder="comment" />
+
+            <button class="btn" type="submit">Submit</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

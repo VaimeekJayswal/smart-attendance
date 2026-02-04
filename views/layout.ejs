@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= typeof title !== "undefined" ? title : "Vaimeek’s Attendance" %></title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="nav">
+    <span class="brand">Vaimeek’s Attendance</span>
+
+    <% if (user) { %>
+      <% if (user.role === "admin") { %>
+        <a href="/admin/users">Users</a>
+        <a href="/admin/subjects">Subjects</a>
+        <a href="/admin/enroll">Enroll</a>
+      <% } %>
+
+      <% if (user.role === "faculty") { %>
+        <a href="/faculty/lectures">Lectures</a>
+        <a href="/faculty/justifications">Justifications</a>
+        <a href="/faculty/reports">Reports</a>
+      <% } %>
+
+      <% if (user.role === "student") { %>
+        <a href="/student/dashboard">Dashboard</a>
+      <% } %>
+
+      <span class="pill">Logged in as: <b><%= user.name %></b> (<%= user.role %>)</span>
+
+      <form action="/logout" method="POST" class="inline">
+        <button class="btn" type="submit">Logout</button>
+      </form>
+    <% } else { %>
+      <a href="/login">Login</a>
+    <% } %>
+  </div>
+
+  <main class="container">
+    <%- body %>
+  </main>
+</body>
+</html>
