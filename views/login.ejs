@@ -1,24 +1,21 @@
 <% var title = "Login"; %>
 
-<h1>Login</h1>
+<div class="login-only-page">
+  <div class="login-box">
+    <h1>Login</h1>
 
-<% if (error) { %>
-  <p class="error"><%= error %></p>
-<% } %>
+    <% if (error) { %>
+      <p class="login-error"><%= error %></p>
+    <% } %>
 
-<form method="POST" action="/login" class="card formCard">
-  <label>Email</label>
-  <input name="email" required />
+    <form method="POST" action="/login">
+      <label>Email</label>
+      <input type="email" name="email" required />
 
-  <label>Password</label>
-  <input name="password" type="password" required />
+      <label>Password</label>
+      <input type="password" name="password" required />
 
-  <button class="btn" type="submit">Login</button>
-
-  <p class="muted small">
-    Demo logins: <br>
-    admin@demo.com / admin123 <br>
-    faculty@demo.com / fac123 <br>
-    student@demo.com / stu123
-  </p>
-</form>
+      <button class="btn" type="submit">Login</button>
+    </form>
+  </div>
+</div>
