@@ -26,9 +26,13 @@ body {
   font-weight: 700;
 }
 
-.nav a:hover { text-decoration: underline; }
+.nav a:hover {
+  text-decoration: underline;
+}
 
-.container { padding: 20px; }
+.container {
+  padding: 20px;
+}
 
 .grid {
   display: grid;
@@ -49,7 +53,9 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.10);
 }
 
-.formCard { max-width: 420px; }
+.formCard {
+  max-width: 420px;
+}
 
 .btn {
   padding: 8px 14px;
@@ -61,9 +67,13 @@ body {
   font-weight: 700;
 }
 
-.btn:hover { background: #6f5f52; }
+.btn:hover {
+  background: #6f5f52;
+}
 
-.inline { display: inline; }
+.inline {
+  display: inline;
+}
 
 .pill {
   background: #7a6a58;
@@ -88,7 +98,9 @@ td, th {
   text-align: left;
 }
 
-th { background: #e6dccf; }
+th {
+  background: #e6dccf;
+}
 
 input, select {
   padding: 8px;
@@ -96,13 +108,24 @@ input, select {
   border: 1px solid #c8bfb3;
   margin: 8px 0 12px;
   width: 100%;
+  background: #fff;
 }
 
-label { font-weight: 700; }
+label {
+  font-weight: 700;
+}
 
-.error { color: #b00020; }
-.muted { color: #777060; }
-.small { font-size: 0.9em; }
+.error {
+  color: #b00020;
+}
+
+.muted {
+  color: #777060;
+}
+
+.small {
+  font-size: 0.9em;
+}
 
 .linkBtn {
   display: inline-block;
@@ -121,5 +144,52 @@ label { font-weight: 700; }
   align-items: center;
 }
 
-.ok { color: #1b7f3a; }
-.bad { color: #b00020; }
+.ok {
+  color: #1b7f3a;
+}
+
+.bad {
+  color: #b00020;
+}
+
+.login-only-page {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/pdeu.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.login-only-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 241, 230, 0.88);
+}
+
+.login-box {
+  position: relative;
+  background: #fffaf0;
+  padding: 28px 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.login-box h1 {
+  margin-top: 0;
+}
+
+.login-box form {
+  margin-top: 10px;
+}
+
+.login-error {
+  color: #b00020;
+  margin-bottom: 10px;
+}
